@@ -15,7 +15,7 @@ const createRating = catchAsync(async (req, res) => {
 });
 
 const queryRatings = catchAsync(async (req, res) => {
-	const filter = pick(req.query, ['name', 'role']);
+	const filter = pick(req.query, ['rating', 'placeID', 'userID', 'food_rating', 'service_rating', 'price_rating']);
 	const options = pick(req.query, ['sortBy', 'limit', 'page']);
 	const result = await Service.queryRatings(filter, options);
 	res.send(result);
