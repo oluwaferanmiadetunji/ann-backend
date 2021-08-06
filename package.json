@@ -24,7 +24,6 @@
 		"@types/mongoose": "^5.11.97",
 		"csv-parser": "^3.0.0",
 		"nodemon": "^2.0.12",
-		"ts-node": "^10.1.0",
 		"tslint": "^5.12.1",
 		"typescript": "^3.3.3"
 	},
@@ -39,6 +38,7 @@
 		"mongodb": "^4.1.0",
 		"mongoose": "^5.13.5",
 		"morgan": "^1.10.0",
+		"ts-node": "^10.1.0",
 		"winston": "^3.3.3",
 		"xss-clean": "^0.1.1"
 	}
