@@ -5,8 +5,13 @@ import catchAsync from '../utils/catchAsync';
 import Service from '../services';
 
 const createRating = catchAsync(async (req, res) => {
-	const rating = await Service.createRating(req.body);
-	res.status(httpStatus.CREATED).send(rating);
+	const data = req.body;
+	for (let i = 0; i < data.length; i++) {
+		console.log(`${i + 1}/${data.length}: Successfully add ${data[i]}`);
+		await Service.createRating(data[i]);
+	}
+
+	res.status(httpStatus.CREATED).json({ message: 'Rating added successfully' });
 });
 
 const queryRatings = catchAsync(async (req, res) => {

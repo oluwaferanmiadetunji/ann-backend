@@ -20,11 +20,10 @@ app.use(morgan.errorHandler);
 // set security HTTP headers
 app.use(helmet());
 
-// parse json request body
-app.use(express.json());
-
 // parse urlencoded request body
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json({ limit: '150mb' }));
+app.use(express.urlencoded({ limit: '150mb', extended: false }));
 
 // sanitize request data
 app.use(xss());
