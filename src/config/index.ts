@@ -1,7 +1,13 @@
+import dotenv from 'dotenv';
+
+process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+
+dotenv.config();
+
 export default {
-	PORT: 5004,
+	PORT: parseInt(process.env.PORT, 10),
 	mongoose: {
-		url: 'mongodb+srv://admin:TNdhjSXFS6L1FNtI@dnar.bkyay.mongodb.net/test?retryWrites=true&w=majority',
+		url: process.env.MONGODB_URI,
 		options: {
 			useCreateIndex: true,
 			useNewUrlParser: true,
