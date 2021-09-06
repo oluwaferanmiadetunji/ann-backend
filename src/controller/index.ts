@@ -39,10 +39,22 @@ const deleteRating = catchAsync(async (req, res) => {
 	res.status(httpStatus.NO_CONTENT).send();
 });
 
+const addData = catchAsync(async (req, res) => {
+	const data = await Service.addData(req.body);
+	res.status(httpStatus.CREATED).json(data);
+});
+
+const getData = catchAsync(async (req, res) => {
+	const data = await Service.getData();
+	res.status(httpStatus.OK).json(data);
+});
+
 export default {
 	createRating,
 	queryRatings,
 	getRatingById,
 	updateRatings,
 	deleteRating,
+	addData,
+	getData,
 };

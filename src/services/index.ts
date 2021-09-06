@@ -1,6 +1,7 @@
 import httpStatus from 'http-status';
 import Ratings from '../models';
 import ApiError from '../utils/ApiError';
+import DataModel from '../models/data';
 
 const createRating = async (body) => {
 	const user = await Ratings.create(body);
@@ -36,10 +37,16 @@ const deleteRatingById = async (id) => {
 	return rating;
 };
 
+const addData = async (body) => await DataModel.create(body);
+
+const getData = async () => await DataModel.find();
+
 export default {
 	createRating,
 	queryRatings,
 	getRatingById,
 	updateRatingById,
 	deleteRatingById,
+	addData,
+	getData,
 };
